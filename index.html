@@ -1,0 +1,865 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Uniform — Basic Landing</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* School Uniforms heading polish */
+    .card-content h3 {
+      font-size: 1.35em !important;
+      color: #005baa !important;
+      font-weight: 700 !important;
+      text-align: center !important;
+      margin: 1em auto 0.3em auto !important;
+      letter-spacing: 0.5px;
+      background: linear-gradient(90deg, #e3f0ff 60%, #fff 100%) !important;
+      border-radius: 8px !important;
+      padding: 0.5em 0.7em !important;
+      box-shadow: 0 2px 8px rgba(0,91,170,0.07);
+      max-width: 320px !important;
+    }
+    /* School Uniforms card description polish */
+    .card-content p {
+      font-size: 1.08em !important;
+      color: #2563eb !important;
+      background: #f8fbff !important;
+      padding: 1em 1.2em !important;
+      border-radius: 8px !important;
+      margin: 0.7em auto !important;
+      text-align: center !important;
+      box-shadow: 0 2px 8px rgba(0,91,170,0.07);
+      font-weight: 500 !important;
+      letter-spacing: 0.1px;
+      max-width: 320px !important;
+    }
+    @media (max-width: 900px) {
+      .container.nav {
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 0.5em 0.7em !important;
+        position: relative !important;
+      }
+      .brand {
+        flex: 1 1 auto !important;
+        display: flex !important;
+        align-items: center !important;
+      }
+      .nav-toggle {
+        position: absolute !important;
+        top: 0.5em !important;
+        right: 0.7em !important;
+        z-index: 1101 !important;
+        margin-left: 0 !important;
+      }
+    }
+    @media (max-width: 900px) {
+      .cta-banner {
+        display: block !important;
+        width: 100% !important;
+        padding: 1.5em 0.5em !important;
+        background: linear-gradient(90deg, #005baa 60%, #2563eb 100%) !important;
+        color: #fff !important;
+        text-align: center !important;
+      }
+      .banner-inner {
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
+      }
+      .cta-banner h2 {
+        font-size: 1.3em !important;
+        margin-bottom: 0.7em !important;
+      }
+      .cta-banner .btn-light {
+        font-size: 1em !important;
+        padding: 0.7em 1.2em !important;
+        border-radius: 20px !important;
+        min-width: unset !important;
+      }
+    }
+    /* Hide menu by default on mobile, show only when toggled */
+    @media (max-width: 900px) {
+      .menu {
+        display: none !important;
+      }
+      .menu.open {
+        display: flex !important;
+      }
+    }
+    /* --- Responsive Navbar & Hamburger --- */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin-left: auto;
+      z-index: 1101;
+    }
+    .nav-toggle span {
+      display: block;
+      height: 4px;
+      width: 100%;
+      background: #005baa;
+      margin: 5px 0;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+    @media (max-width: 900px) {
+      .nav-toggle {
+        display: flex !important;
+      }
+      .menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        background: #fff;
+        box-shadow: -2px 0 16px rgba(0,91,170,0.10);
+        border-radius: 0 0 0 16px;
+        display: none;
+        flex-direction: column;
+        min-width: 200px;
+        padding: 2em 1.2em 2em 1.2em;
+        z-index: 1100;
+        text-align: right;
+        height: 100vh;
+        align-items: flex-end;
+        transition: right 0.3s;
+      }
+      .menu.open {
+        display: flex;
+      }
+      .menu a {
+        margin: 1em 0;
+        color: #005baa;
+        font-weight: 500;
+        display: block;
+        font-size: 1.1em;
+      }
+      .container.nav {
+        flex-wrap: nowrap;
+        align-items: center;
+      }
+    }
+    .nav-toggle.open span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+    .nav-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .nav-toggle.open span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+    /* --- Responsive Grid & Layouts --- */
+    @media (max-width: 900px) {
+      .order-steps, .feature-grid, .steps, .testimonial-list, .featured-list, .cards {
+        flex-direction: column !important;
+        gap: 1.5em !important;
+      }
+      .order-step, .feature, .step, .testimonial, .featured-item, .card {
+        width: 100% !important;
+        min-width: 0 !important;
+      } 
+      .hero-content {
+        text-align: center;
+        padding: 2em 0.5em;
+      }
+        .hero-bg {
+          display: block !important;
+          width: 100% !important;
+          max-height: 180px !important;
+          object-fit: cover !important;
+          margin: 0 auto 1em auto !important;
+          border-radius: 12px !important;
+        }
+      .approach .split {
+        flex-direction: column;
+      }
+      .approach img {
+        width: 100%;
+        margin-bottom: 1em;
+      }
+      .story-hero img {
+        height: 180px;
+        object-fit: cover;
+      }
+    }
+    @media (max-width: 600px) {
+      h1, h2 {
+        font-size: 1.5em !important;
+      }
+      .btn, .btn-outline, .btn-light, .btn-advanced {
+        font-size: 1em !important;
+        padding: 0.7em 1.2em !important;
+      }
+      .modal-content.advanced-form {
+        padding: 1.2em 0.7em 1em 0.7em;
+        max-width: 98vw;
+      }
+    }
+    /* --- Modern Button Styles --- */
+    .process .btn-light {
+      background: #fff;
+      color: #005baa;
+      border: 2px solid #005baa;
+      font-weight: 600;
+      border-radius: 24px;
+      transition: background 0.2s, color 0.2s;
+      box-shadow: 0 2px 8px rgba(0,91,170,0.08);
+    }
+    .process .btn-light:hover {
+      background: #005baa;
+      color: #fff;
+    }
+    .btn-light.btn-small {
+      font-size: 0.9em;
+      padding: 0.4em 0.4em;
+      border-radius: 20px;
+      min-width: unset;
+    }
+    /* --- Card & Modal Polish --- */
+    .card-content p {
+      max-width: 260px;
+      margin: 0 auto;
+    }
+    .modal-content.advanced-form {
+      background: #fff;
+      margin: 3% auto;
+      padding: 2.5em 2.5em 1.5em 2.5em;
+      border-radius: 18px;
+      max-width: 420px;
+      box-shadow: 0 8px 32px rgba(0,91,170,0.18), 0 2px 16px rgba(0,0,0,0.10);
+      position: relative;
+      animation: modalIn 0.2s;
+    }
+    @keyframes modalIn { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    :root {
+      --primary: #005baa;
+      --primary-dark: #003e7e;
+      --accent: #2563eb;
+    }
+    /* Responsive grid improvements */
+    @media (max-width: 900px) {
+      .order-steps, .feature-grid, .steps, .testimonial-list, .featured-list, .cards {
+        flex-direction: column !important;
+        gap: 1.5em !important;
+      }
+      .order-step, .feature, .step, .testimonial, .featured-item, .card {
+        width: 100% !important;
+        min-width: 0 !important;
+      }
+      .hero-content {
+        text-align: center;
+        padding: 2em 0.5em;
+      }
+      .hero-bg {
+        display: none;
+      }
+      .approach .split {
+        flex-direction: column;
+      }
+      .approach img {
+        width: 100%;
+        margin-bottom: 1em;
+      }
+      .story-hero img {
+        height: 180px;
+        object-fit: cover;
+      }
+    }
+    @media (max-width: 600px) {
+      h1, h2 {
+        font-size: 1.5em !important;
+      }
+      .btn, .btn-outline, .btn-light, .btn-advanced {
+        font-size: 1em !important;
+        padding: 0.7em 1.2em !important;
+      }
+      .modal-content.advanced-form {
+        padding: 1.2em 0.7em 1em 0.7em;
+        max-width: 98vw;
+      }
+    }
+    /* Modern button style for Learn More */
+    .process .btn-light {
+      background: #fff;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      font-weight: 600;
+      border-radius: 24px;
+      transition: background 0.2s, color 0.2s;
+      box-shadow: 0 2px 8px rgba(0,91,170,0.08);
+    }
+    .process .btn-light:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+    /* Add this CSS to make the button smaller */
+    .btn-light.btn-small {
+  font-size: 0.9em;
+  padding: 0.4em 0.4em;
+  border-radius: 20px;
+  min-width: unset;
+}
+  </style>
+</head>
+<body>
+
+  <!-- 1) NAV + HERO -->
+  <header class="site-header">
+    <div class="container nav" style="display:flex;align-items:center;position:relative;">
+      <div class="brand">
+  <img src="TUC-logo-white.png" alt="TUC Logo" class="logo-img" style="height:38px;vertical-align:middle;margin-right:10px;">
+  
+      </div>
+      <!-- Hamburger button for mobile -->
+      <button class="nav-toggle" id="navToggle" aria-label="Open navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="menu" id="mainNav">
+        <a href="#">About</a>
+        <a href="#">Home</a>
+        <a href="#">Products</a>
+    <a class="btn btn-outline" href="#" id="bookDemoBtn">Book a Demo</a>
+      </nav>
+    </div>
+
+    <section class="hero">
+      <div class="container hero-content">
+        <h1>Your Trusted<br><span class="accent">Uniform Supplier</span></h1>
+        <p>We provide high‑quality uniforms that are comfortable, durable, and affordable for schools, companies, and organizations.</p>
+  <!-- Actions removed for professional appearance -->
+      </div>
+      <img class="hero-bg" src="creative-colleagues.jpg" alt="">
+    </section>
+  </header>
+
+  <!-- 2) CTA BUTTONS ROW -->
+
+  
+
+  <!-- Brand Logos Section Removed -->
+
+  <!-- How to Order Section -->
+  <section class="how-to-order">
+    <h2>How to Order</h2>
+    <div class="order-steps">
+      <div class="order-step">
+        <div class="order-step-icon">&#128221;</div>
+        <h4>Request a Quote</h4>
+        <p>Contact us with your requirements and get a fast, free quote.</p>
+      </div>
+      <div class="order-step">
+        <div class="order-step-icon">&#128196;</div>
+        <h4>Approve Design</h4>
+        <p>Review and approve your custom uniform design and details.</p>
+      </div>
+      <div class="order-step">
+        <div class="order-step-icon">&#128230;</div>
+        <h4>Production</h4>
+        <p>We manufacture your uniforms with quality checks at every step.</p>
+      </div>
+      <div class="order-step">
+        <div class="order-step-icon">&#128666;</div>
+        <h4>Delivery</h4>
+        <p>Receive your uniforms on time, ready to wear and impress.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3) SERVICES GRID -->
+  <section class="services">
+    <div class="container">
+      <div class="section-head">
+        <small>Our services</small>
+        <h2>We Provide a Wide Range of Quality Uniforms</h2>
+        <p>From school uniforms to corporate wear, we offer premium quality, comfort, and style for every need.</p>
+      </div>
+
+      <!-- Hero Section -->
+      <section class="hero" style="background: linear-gradient(90deg, #005baa 60%, #fff 100%); color: #fff; padding: 60px 0 40px 0; text-align: center;">
+        <h1 style="font-size: 2.5rem; margin-bottom: 0.5em;">Uniform Provider</h1>
+        <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto 1.5em auto; color: #e0e0e0;">Supplying quality uniforms for schools, corporates, and industries. Custom branding, bulk orders, and fast delivery.</p>
+        <a href="#contact" style="background: #fff; color: #005baa; padding: 0.75em 2em; border-radius: 24px; text-decoration: none; font-weight: bold;">Get a Quote</a>
+      </section>
+
+      <!-- Featured Products Section -->
+      <section class="featured-products">
+        <h2>Featured Products</h2>
+        <div class="featured-list">
+          <div class="featured-item">
+            <img src="front-view-cute-young-boy-girl-posing-together.jpg" alt="Boys' School Blazer">
+            <h4>Boys' School Blazer</h4>
+            <p>Classic navy blue blazer, durable and stylish for all seasons.</p>
+          </div>
+          <div class="featured-item">
+            <img src="men-s-formal-wear-collection.jpg" alt="Corporate Polo Shirt">
+            <h4>Corporate Polo Shirt</h4>
+            <p>Comfortable, branded polo for office and events. Available in all sizes.</p>
+          </div>
+          <div class="featured-item">
+            <img src="group-confident-men-blue-uniforms-posing-factory-setting.jpg" alt="Industrial Coverall">
+            <h4>Industrial Coverall</h4>
+            <p>Protective, high-visibility coverall for industrial and field work.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Uniform Categories -->
+      <section class="cards">
+        <article class="card">
+        
+          <img src="boy-hugging-girls-near-school.jpg" alt="School Uniforms">
+          <div class="card-content">
+            <h3>School Uniforms</h3>
+              
+            <p style="max-width: 260px; margin: 0 auto;">Durable, comfortable, and stylish uniforms for all educational levels. Custom colors and logos available.</p>
+          </div>
+        </article>
+        <article class="card">
+          
+          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=600&auto=format&fit=crop" alt="Corporate Uniforms">
+          <div class="card-content">
+            <h3>Corporate Uniforms</h3>
+            <p style="max-width: 260px; margin: 0 auto;" >Professional attire for offices, hotels, and service industries. Enhance your brand with our tailored solutions.</p>
+          </div>
+        </article>
+        <article class="card">
+         
+          <img src="smiley-male-female-construction-workers.jpg" alt="Modern industrial uniforms">
+          <div class="card-content">
+            <h3>Industrial Uniforms</h3>
+            <p style="max-width: 260px; margin: 0 auto;">Safety-first uniforms for factories, construction, and field work. High-visibility and protective options.</p>
+          </div>
+        </article>
+      </section>
+    </div>
+  </section>
+
+  <!-- 4) BLUE CTA BANNER -->
+  <section class="cta-banner">
+    <div class="container banner-inner">
+      <h2>Need customized services?</h2>
+      
+  <a class="btn btn-light btn-small" href="#" id="requestCallBtn">Request a Call</a>
+    </div>
+  </section>
+
+  <!-- 5) APPROACH SPLIT -->
+  <section class="approach">
+    <div class="container split">
+  <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1200&auto=format&fit=crop" alt="Uniformed staff smiling and working together">
+      <div>
+  <small>Our approach</small>
+  <h2>Expertise in Uniform Solutions</h2>
+  <p>With decades of experience, we help schools, corporates, and industries create a unified, professional look. Our team guides you from design to delivery, ensuring every detail meets your standards for quality, comfort, and brand identity.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6) FULL-BLEED STORY HERO -->
+  <section class="story-hero">
+    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1800&auto=format&fit=crop" alt="Team of staff in uniforms smiling together">
+    <div class="story-overlay">
+      <h2>Trusted by Schools & Businesses Nationwide</h2>
+      <p style="color:#fff;font-size:1.15em;margin:0.5em 0 1.2em 0;max-width:500px;">From classrooms to boardrooms, our uniforms help teams look their best and feel confident every day.</p>
+      <a class="btn btn-outline btn-light" href="#">Read our story</a>
+    </div>
+  </section>
+
+  <!-- 7) WHY CHOOSE US (FEATURES) -->
+  <section class="features">
+    <div class="container">
+      <div class="section-head center">
+        <small>Why choose us</small>
+        <h2>Empowering Schools with Modern Uniform Solutions</h2>
+        <p>We provide high‑quality, comfortable, and stylish uniforms that represent your school’s identity while ensuring durability and affordability.</p>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature">
+          <div class="icon"> <!-- Quality Icon -->
+            <svg width="28" height="28" fill="#005baa" viewBox="0 0 24 24"><path d="M12 2l2.09 6.26L20 9.27l-5 3.64L16.18 20 12 16.9 7.82 20 9 12.91l-5-3.64 5.91-.01z"/></svg>
+          </div>
+          <h3>Quality You Can Trust</h3>
+          <p>Premium fabrics for long‑lasting wear and comfort.</p>
+          <div class="track-record">
+            <a href="#track-record" class="track-record-link"><strong>Our Track Record &rarr;</strong></a> 10,000+ satisfied customers, 20+ years of service, and trusted by top schools and companies.
+          </div>
+        </div>
+        <div class="feature">
+          <div class="icon"> <!-- Customization Icon -->
+            <svg width="28" height="28" fill="#005baa" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75l11.06-11.06-3.75-3.75L3 17.25zm14.71-9.04a1.003 1.003 0 0 0 0-1.42l-2.5-2.5a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+          </div>
+          <h3>Customized to Your Needs</h3>
+          <p>Colors, logos, and designs that match your brand.</p>
+          <div class="our-process-link">
+            <a href="#our-process" class="process-link"><strong>Our Process &rarr;</strong></a>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="icon"> <!-- Hassle-Free Icon -->
+            <svg width="28" height="28" fill="#005baa" viewBox="0 0 24 24"><path d="M12 4a8 8 0 1 0 8 8 8.009 8.009 0 0 0-8-8zm3.93 6.36l-4.24 4.24a1 1 0 0 1-1.41 0l-2.12-2.12a1 1 0 1 1 1.41-1.41l1.41 1.41 3.54-3.54a1 1 0 1 1 1.41 1.42z"/></svg>
+          </div>
+          <h3>Hassle‑Free Supply</h3>
+          <p>Reliable delivery and bulk ordering options.</p>
+          <div class="our-solution-link">
+            <a href="#our-solution" class="solution-link"><strong>Our Solution &rarr;</strong></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8) OUR PROCESS (STEPS GRID) -->
+  <section class="process">
+    <div class="container">
+      <h2>Our process</h2>
+      <div class="steps">
+        <div class="step">
+          <span class="num">01.</span>
+          <h3>Design Selection</h3>
+          <p>Choose from a wide range of styles, colors, and fabrics.</p>
+        </div>
+        <div class="step">
+          <span class="num">02.</span>
+          <h3>Customization</h3>
+          <p>Logos, name tags, and unique design elements.</p>
+        </div>
+        <div class="step">
+          <span class="num">03.</span>
+          <h3>Production</h3>
+          <p>Quality manufacturing and strict QC checks.</p>
+        </div>
+        <div class="step">
+          <span class="num">04.</span>
+          <h3>Delivery & Support</h3>
+          <p>On‑time delivery and responsive after‑sales help.</p>
+        </div>
+      </div>
+      <a class="btn btn-light mt" href="#">Learn more</a>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonial-list">
+      <div class="testimonial">
+        <p>"Uniform Provider delivered our school uniforms on time and the quality is excellent. Highly recommended!"</p>
+        <div class="testimonial-author">— Principal, Green Valley School</div>
+      </div>
+      <div class="testimonial">
+        <p>"Our staff look professional and feel comfortable thanks to their custom uniforms. Great service!"</p>
+        <div class="testimonial-author">— HR Manager, TechCorp</div>
+      </div>
+      <div class="testimonial">
+        <p>"We ordered industrial uniforms in bulk and got a great deal. Will order again!"</p>
+        <div class="testimonial-author">— Operations Lead, BuildPro</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+  <!-- Book a Demo Modal Form -->
+  <!-- Request a Call Modal Form -->
+  <div id="requestCallModal" class="modal">
+    <div class="modal-content advanced-form">
+      <span class="close" id="closeCallModalBtn">&times;</span>
+      <h2 style="text-align:center;margin-bottom:0.5em;letter-spacing:0.5px;">Request a Call</h2>
+      <form id="callForm" autocomplete="off">
+        <div class="form-group">
+          <span class="input-icon">👤</span>
+          <input type="text" id="callName" name="callName" required placeholder=" " />
+          <label for="callName">Full Name</label>
+        </div>
+        <div class="form-group">
+          <span class="input-icon">📞</span>
+          <input type="tel" id="callPhone" name="callPhone" required placeholder=" " pattern="[0-9\-\+\s]{7,}" />
+          <label for="callPhone">Phone Number</label>
+        </div>
+        <div class="form-group">
+          <span class="input-icon">✉️</span>
+          <input type="email" id="callEmail" name="callEmail" placeholder=" " />
+          <label for="callEmail">Email (optional)</label>
+        </div>
+        <div class="form-group">
+          <span class="input-icon">💬</span>
+          <textarea id="callMessage" name="callMessage" rows="2" placeholder=" "></textarea>
+          <label for="callMessage">Message</label>
+        </div>
+        <button type="submit" class="btn-advanced">Submit Request</button>
+      </form>
+    </div>
+  </div>
+  <div id="bookDemoModal" class="modal">
+    <div class="modal-content advanced-form">
+      <span class="close" id="closeModalBtn">&times;</span>
+      <h2 style="text-align:center;margin-bottom:0.5em;letter-spacing:0.5px;">Book a Demo</h2>
+      <form id="demoForm" autocomplete="off">
+        <div class="form-group">
+          <span class="input-icon">👤</span>
+          <input type="text" id="name" name="name" required placeholder=" " />
+          <label for="name">Full Name</label>
+        </div>
+        <div class="form-group">
+          <span class="input-icon">✉️</span>
+          <input type="email" id="email" name="email" required placeholder=" " />
+          <label for="email">Email Address</label>
+        </div>
+        <div class="form-group">
+          <span class="input-icon">🏢</span>
+          <input type="text" id="company" name="company" placeholder=" " />
+          <label for="company">Company / School</label>
+        </div>
+        <div class="form-group">
+          <span class="input-icon">💬</span>
+          <textarea id="message" name="message" rows="3" placeholder=" "></textarea>
+          <label for="message">Message</label>
+        </div>
+        <button type="submit" class="btn-advanced">Submit Request</button>
+      </form>
+    </div>
+  </div>
+
+  <style>
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0; width: 100%; height: 100%;
+      overflow: auto;
+      background: rgba(0,0,0,0.4);
+    }
+    .modal-content.advanced-form {
+      background: #fff;
+      margin: 3% auto;
+      padding: 2.5em 2.5em 1.5em 2.5em;
+      border-radius: 18px;
+      max-width: 420px;
+      box-shadow: 0 8px 32px rgba(0,91,170,0.18), 0 2px 16px rgba(0,0,0,0.10);
+      position: relative;
+      animation: modalIn 0.2s;
+    }
+    @keyframes modalIn { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    .advanced-form form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2em;
+    }
+    .form-group {
+      position: relative;
+      margin-bottom: 0.5em;
+    }
+    .form-group .input-icon {
+      position: absolute;
+      left: 1em;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.1em;
+      color: #005baa;
+      pointer-events: none;
+      opacity: 0.7;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.85em 1em 0.85em 2.5em;
+      border: 1.5px solid #b5c9e2;
+      border-radius: 6px;
+      font-size: 1em;
+      background: #f8fbff;
+      transition: border 0.2s, box-shadow 0.2s;
+      outline: none;
+      margin-top: 0;
+      resize: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border: 1.5px solid #005baa;
+      box-shadow: 0 0 0 2px #e3f0ff;
+      background: #fff;
+    }
+    .form-group label {
+      position: absolute;
+      left: 2.5em;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent;
+      color: #888;
+      font-size: 1em;
+      pointer-events: none;
+      transition: 0.2s;
+      padding: 0 0.2em;
+    }
+    .form-group input:focus + label,
+    .form-group input:not(:placeholder-shown) + label,
+    .form-group textarea:focus + label,
+    .form-group textarea:not(:placeholder-shown) + label {
+      top: -0.7em;
+      left: 2.2em;
+      font-size: 0.85em;
+      color: #005baa;
+      background: #fff;
+      padding: 0 0.3em;
+      border-radius: 3px;
+      box-shadow: 0 1px 2px rgba(0,91,170,0.03);
+    }
+    .btn-advanced {
+      background: linear-gradient(90deg, #005baa 60%, #2563eb 100%);
+      color: #fff;
+      border: none;
+      border-radius: 24px;
+      padding: 0.85em 0;
+      font-size: 1.1em;
+      font-weight: 600;
+      margin-top: 0.5em;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,91,170,0.08);
+      transition: background 0.2s, box-shadow 0.2s;
+      width: 100%;
+      letter-spacing: 0.5px;
+    }
+    .btn-advanced:hover {
+      background: linear-gradient(90deg, #2563eb 60%, #005baa 100%);
+      box-shadow: 0 4px 16px rgba(0,91,170,0.13);
+    }
+    .close {
+      position: absolute;
+      right: 1em;
+      top: 1em;
+      font-size: 1.5em;
+      color: #888;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .close:hover { color: #005baa; }
+  </style>
+
+  <script>
+    // Hamburger menu toggle for mobile
+    document.addEventListener('DOMContentLoaded', function() {
+      var navToggle = document.getElementById('navToggle');
+      var mainNav = document.getElementById('mainNav');
+      navToggle.addEventListener('click', function() {
+        mainNav.classList.toggle('open');
+        navToggle.classList.toggle('open');
+        if(mainNav.classList.contains('open')) {
+          document.body.style.overflow = 'hidden';
+        } else {
+          document.body.style.overflow = '';
+        }
+      });
+      mainNav.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          if (window.innerWidth <= 900) {
+            mainNav.classList.remove('open');
+            navToggle.classList.remove('open');
+            document.body.style.overflow = '';
+          }
+        });
+      });
+      window.addEventListener('resize', function() {
+        if(window.innerWidth > 900) {
+          mainNav.classList.remove('open');
+          navToggle.classList.remove('open');
+          document.body.style.overflow = '';
+        }
+      });
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+      // Book a Demo Modal
+      var modal = document.getElementById('bookDemoModal');
+      var btn = document.getElementById('bookDemoBtn');
+      var closeBtn = document.getElementById('closeModalBtn');
+      btn.onclick = function(e) {
+        e.preventDefault();
+        modal.style.display = 'block';
+      };
+      closeBtn.onclick = function() {
+        modal.style.display = 'none';
+      };
+
+      // Request a Call Modal
+      var callModal = document.getElementById('requestCallModal');
+      var callBtn = document.getElementById('requestCallBtn');
+      var closeCallBtn = document.getElementById('closeCallModalBtn');
+      callBtn.onclick = function(e) {
+        e.preventDefault();
+        callModal.style.display = 'block';
+      };
+      closeCallBtn.onclick = function() {
+        callModal.style.display = 'none';
+      };
+
+      // Close modals on outside click
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = 'none';
+        }
+        if (event.target == callModal) {
+          callModal.style.display = 'none';
+        }
+      };
+
+      document.getElementById('demoForm').onsubmit = function(e) {
+        e.preventDefault();
+        alert('Thank you for booking a demo! We will contact you soon.');
+        modal.style.display = 'none';
+        this.reset();
+      };
+      document.getElementById('callForm').onsubmit = function(e) {
+        e.preventDefault();
+        alert('Thank you for your request! We will call you soon.');
+        callModal.style.display = 'none';
+        this.reset();
+      };
+    });
+  </script>
+    <div class="container">© 2025 Uniform Co.</div>
+  </footer>
+  </body>
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-col company-info">
+          <h4>Uniform Provider</h4>
+          <p>Quality uniforms for schools, corporates, and industries.<br>Custom branding and bulk orders available.</p>
+        </div>
+        <div class="footer-col quick-links">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col social-links">
+          <h5>Connect</h5>
+          <div class="footer-socials">
+            <a href="https://twitter.com/yourprofile" target="_blank" aria-label="Twitter" class="footer-social">
+              <svg width="28" height="28" fill="#1da1f2" viewBox="0 0 24 24"><path d="M24 4.557a9.93 9.93 0 0 1-2.828.775 4.932 4.932 0 0 0 2.165-2.724c-.951.564-2.005.974-3.127 1.195a4.92 4.92 0 0 0-8.39 4.482C7.691 8.095 4.066 6.13 1.64 3.161c-.542.929-.856 2.01-.857 3.17 0 2.188 1.115 4.117 2.823 5.247a4.904 4.904 0 0 1-2.229-.616c-.054 2.281 1.581 4.415 3.949 4.89a4.936 4.936 0 0 1-2.224.084c.627 1.956 2.444 3.377 4.6 3.417A9.867 9.867 0 0 1 0 21.543a13.94 13.94 0 0 0 7.548 2.209c9.058 0 14.009-7.496 14.009-13.986 0-.21-.005-.423-.015-.633A9.936 9.936 0 0 0 24 4.557z"/></svg>
+            </a>
+            <a href="https://facebook.com/yourprofile" target="_blank" aria-label="Facebook" class="footer-social">
+              <svg width="28" height="28" fill="#1877f3" viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0"/></svg>
+            </a>
+            <a href="https://instagram.com/yourprofile" target="_blank" aria-label="Instagram" class="footer-social">
+              <svg width="28" height="28" fill="#e4405f" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.974.974 1.246 2.241 1.308 3.608.058 1.266.069 1.646.069 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.974.974-2.241 1.246-3.608 1.308-1.266.058-1.646.069-4.85.069s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.974-.974-1.246-2.241-1.308-3.608C2.013 8.332 2 8.741 2 12c0 3.259.013 3.668.072 4.948.058 1.277.331 2.45 1.298 3.417.967.967 2.14 1.24 3.417 1.298C8.332 23.987 8.741 24 12 24s3.668-.013 4.948-.072c1.277-.058 2.45-.331 3.417-1.298.967-.967 1.24-2.14 1.298-3.417.059-1.28.072-1.689.072-4.948 0-3.259-.013-3.668-.072-4.948-.058-1.277-.331-2.45-1.298-3.417-.967-.967-2.14-1.24-3.417-1.298C15.668.013 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
+            </a>
+            <a href="https://linkedin.com/yourprofile" target="_blank" aria-label="LinkedIn" class="footer-social">
+              <svg width="28" height="28" fill="#0077b5" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.327-.027-3.037-1.849-3.037-1.851 0-2.132 1.445-2.132 2.939v5.667H9.358V9h3.414v1.561h.049c.476-.899 1.637-1.849 3.37-1.849 3.602 0 4.267 2.368 4.267 5.455v6.285zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zm1.777 13.019H3.56V9h3.554v11.452zM22.225 0H1.771C.792 0 0 .771 0 1.723v20.549C0 23.229.792 24 1.771 24h20.451C23.2 24 24 23.229 24 22.271V1.723C24 .771 23.2 0 22.225 0z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">&copy; 2025 Uniform Provider. All rights reserved.</div>
+    </footer>
+</html>
